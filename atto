@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    exit('Command line only!' . PHP_EOL);
+}
+
+require __DIR__.'/vendor/autoload.php';
+$config = require_once __DIR__.'/config.inc.php';
+
+$app = new App\Atto($config);
+$app->handle($argv);
